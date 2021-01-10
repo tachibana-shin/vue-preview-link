@@ -1,0 +1,151 @@
+  @mixin truncate-line($line) {
+    max-height: (1.2em * $line);
+    -webkit-line-clamp: $line;
+  }
+
+  @mixin text-truncate($line) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+    word-wrap: break-word;
+    @include truncate-line($line);
+  }
+
+  .preview-link {
+    position: relative;
+    width: 100%;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, .1);
+    color: #050505;
+    text-decoration: none;
+    transition: opacity .15s ease;
+    max-width: 720px;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &.preview-link--dark {
+      border-color: rgba(255, 255, 255, .1);
+      color: #e5e6e8;
+    }
+
+    &__btn-info {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      position: absolute;
+      top: 11px;
+      right: 12px;
+      text-align: center;
+      vertical-align: middle;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    &__image {
+      width: (152 / 360 * 100%);
+      position: relative;
+
+      &:before {
+        display: block;
+        content: "";
+        padding-top: 100%;
+      }
+
+      background: {
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+      }
+    }
+
+    &-small &__image {
+      width: (76 / 360 * 100%);
+    }
+
+    &-small &__detail {
+      &--subtitle {
+        display: none;
+      }
+    }
+
+    &-large {
+      flex-wrap: wrap;
+    }
+
+    &-large {
+      max-width: 1080px;
+    }
+
+    &-large &__image {
+      width: 100%;
+      max-width: 100%;
+
+      &:before {
+        padding-top: (189 / 360 * 100%);
+      }
+    }
+
+    &__detail {
+      padding: 16px 12px;
+      background-color: #f7f8fa;
+      border-left: inherit;
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: (100% - 152 / 360 * 100);
+
+      &--url,
+      &--subtitle {
+        color: #66676c;
+      }
+
+      &--url {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: .9em;
+        @include text-truncate(1);
+      }
+
+      &--title {
+        font-weight: 600;
+        @include text-truncate(2);
+      }
+
+      &--subtitle {
+        font-size: 80%;
+        @include text-truncate(3);
+      }
+    }
+
+    &.preview-link--dark &__detail {
+      background-color: #393a3c;
+
+      &--url,
+      &--subtitle {
+        color: #b1b3b7;
+      }
+
+      &--title {
+        margin-top: 5px;
+        line-height: 1.2;
+      }
+
+      &--subtitle {
+        line-height: 1;
+      }
+    }
+
+    &-small &__detail {
+      max-width: (100% - 76 / 360 * 100%);
+    }
+
+    &-large &__detail {
+      border-left: 0;
+      border-top: inherit;
+    }
+
+    &-large &__detail {
+      max-width: 100%;
+    }
+  }
