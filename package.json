@@ -1,7 +1,7 @@
 {
   "name": "vue-preview-link",
   "description": "Preview link for vue. This plugin like preview link Facebook.",
-  "version": "0.0.1-b1",
+  "version": "0.0.1-b2",
   "author": "Nguyen Thanh",
   "private": false,
   "publishConfig": {
