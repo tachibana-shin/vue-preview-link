@@ -1,6 +1,6 @@
 # vue-preview-link
 
-Support vue-routee and ssr.
+Support vue-router and ssr. It like Facebook!
 
 ## Install
 
