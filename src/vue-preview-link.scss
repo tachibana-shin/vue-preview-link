@@ -16,7 +16,9 @@
     width: 100%;
     display: flex;
     border: 1px solid rgba(0, 0, 0, .1);
-    color: #050505;
+    &, &:visibled, &:active {
+      color: #050505;
+    }
     text-decoration: none;
     transition: opacity .15s ease;
     max-width: 720px;
@@ -27,7 +29,9 @@
 
     &.preview-link--dark {
       border-color: rgba(255, 255, 255, .1);
-      color: #e5e6e8;
+      &, &:visibled, &:active {
+        color: #e5e6e8;
+      }
     }
 
     &__btn-info {
